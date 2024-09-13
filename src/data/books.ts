@@ -4,31 +4,31 @@ export const books: BookItem[] = [
   {
     "id": 1,
     "title": "Dom Casmurro",
-    "photo": "/books/1.png",
+    "photo": "books/1.png",
     "price": 50
   },
   {
     "id": 2,
     "title": "The Power of Habit",
-    "photo": "/books/2.png",
+    "photo": "books/2.png",
     "price": 60
   },
   {
     "id": 3,
     "title": "O Menino Maluquinho",
-    "photo": "/books/3.png",
+    "photo": "books/3.png",
     "price": 70
   },
   {
     "id": 4,
     "title": "A Hora da Estrela",
-    "photo": "/books/4.png",
+    "photo": "books/4.png",
     "price": 30
   },
   {
     "id": 5,
     "title": "Cidade de Deus",
-    "photo": "/books/5.png",
+    "photo": "books/5.png",
     "price": 90
   },
   {

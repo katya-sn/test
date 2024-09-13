@@ -1,7 +1,7 @@
 export const navbarData = [
   {
     name: 'Home',
-    to: '/home',
+    to: '/',
   },
   {
     name: 'Shop',
