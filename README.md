@@ -1,50 +1,17 @@
-# React + TypeScript + Vite
+## How to Run the Page Locally
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Clone the repository to your local machine using the command **`git clone https://github.com/katya-sn/test.git`**.
+2. Then, navigate to the project directory using **cd test**.
+3. Make sure you have Node.js and npm installed, and install the project dependencies by running **`npm install`**.
+4. After the dependencies are installed, start the development server with **`npm run dev`**.
+5. Finally, open your browser and go to **http://localhost:5173** to see the Landing running locally.
 
-Currently, two official plugins are available:
+## Коротенький опис
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Частина застосунку, розроблена за допомогою React та TypeScript, з використанням Vite як інструменту для збірки. Для стилізації використовула бібліотека MUI,стилі визначені через CSS-in-JS підхід з використанням пропса sx в компонентах MUI, що дозволило динамічно задавати стилі та реалізовувати адаптивний дизайн (для мобільної та десктопної з брейкпоінтами, визначеними на макеті в Figma).
 
-## Expanding the ESLint configuration
+Для навігації між сторінками проєкту використала react-router-dom, що забезпечує плавний перехід між різними частинами додатку. Управління SEO реалізувала через react-helmet, що дозволяє налаштовувати мета-теги для покращення видимості у пошукових системах.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Для управління кошиком (cart) реалізовано контекст, а дані збережено у localStorage для збереження інформації.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+На жаль, проєкт не завершений повністю, і деякі стилі залишилися недоробленими. Однак це перший досвід з MUI і відведеного часу виявилось недостатньо. Але продовжуватиму лупати сю скалу UI бібліотеки. 
