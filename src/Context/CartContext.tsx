@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer } from 'react';
+import React, { createContext, useEffect, useMemo, useReducer } from 'react';
 import { CartBook } from '../types/cartItem';
 
 type Action =
@@ -9,6 +9,7 @@ type Action =
 type CartContextType = {
   cartList: CartBook[];
   cartDispatch: React.Dispatch<Action>;
+  totalPrice: number;
 };
 
 const reducer = (state: CartContextType, action: Action): CartContextType => {
@@ -35,7 +36,8 @@ const reducer = (state: CartContextType, action: Action): CartContextType => {
 
 export const CartContext = createContext<CartContextType>({
   cartList: [],
-  cartDispatch: () => {},
+  cartDispatch: () => { },
+  totalPrice: 0,
 });
 
 type Props = {
@@ -47,13 +49,18 @@ const initialCartList = savedCartList ? JSON.parse(savedCartList) : [];
 
 const initialState: CartContextType = {
   cartList: initialCartList,
-  cartDispatch: () => {},
+  cartDispatch: () => { },
+  totalPrice: 0,
 };
 
 export const CartProvider: React.FC<Props> = ({ children }) => {
   const [state, cartDispatch] = useReducer(reducer, initialState);
 
   const { cartList } = state;
+
+  const totalPrice = useMemo(() => {
+    return cartList.reduce((sum, item) => sum + item.quantity * item.price, 0);
+  }, [cartList]);
 
   useEffect(() => {
     localStorage.setItem('cartList', JSON.stringify(cartList));
@@ -62,6 +69,7 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
   const value = {
     cartList,
     cartDispatch,
+    totalPrice
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

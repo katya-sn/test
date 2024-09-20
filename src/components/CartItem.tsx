@@ -37,7 +37,7 @@ export const CartItem: React.FC<Props> = ({ book }) => {
   }
   const handleReduceAmount = () => {
     const newQuantity = book.quantity - 1;
-    newQuantity === 0 ? handleRemoveProduct() : changeAmount(newQuantity);
+    newQuantity === 0 || -1 ? handleRemoveProduct() : changeAmount(newQuantity);
   };
 
   const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,7 +49,6 @@ export const CartItem: React.FC<Props> = ({ book }) => {
 
   return (
     <Card
-      key={book.title}
       sx={{
         width: { xs: "290px", lg: "706px" },
         height: "148px",

@@ -74,7 +74,7 @@ export const PaymentForm = () => {
       isValid = false;
     }
 
-    if (formValues.cardNumber.length !== 12) {
+    if (formValues.cardNumber.length !== 19) {
       newErrors.cardNumber = "Card number must be exactly 12 digits";
       isValid = false;
     }

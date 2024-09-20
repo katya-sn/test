@@ -1,4 +1,4 @@
-import { useContext, useMemo } from "react";
+import { useContext } from "react";
 import { CartItem } from "../components/CartItem";
 import { CartContext } from "../Context/CartContext";
 import { Box, Divider, Typography } from "@mui/material";
@@ -9,11 +9,7 @@ import { Helmet } from "react-helmet";
 import logo from "../assets/logo.svg";
 
 export const Cart = () => {
-  const { cartList } = useContext(CartContext);
-
-  const cartTotalPrice = useMemo(() => {
-    return cartList.reduce((sum, item) => sum + item.quantity * item.price, 0);
-  }, [cartList]);
+  const { cartList, totalPrice } = useContext(CartContext);
 
   return (
     <>
@@ -96,7 +92,7 @@ export const Cart = () => {
                 marginBottom={10}
               >
                 {cartList.map((item) => (
-                  <CartItem book={item} />
+                  <CartItem book={item} key={item.title} />
                 ))}
                 <Box
                   component="div"
@@ -152,7 +148,7 @@ export const Cart = () => {
                       Subtotal
                     </Typography>
 
-                    <Typography variant="h3">Rs. {cartTotalPrice}</Typography>
+                    <Typography variant="h3">Rs. {totalPrice}</Typography>
                   </Box>
                 </Box>
               </Box>

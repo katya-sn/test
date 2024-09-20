@@ -7,7 +7,7 @@ function App() {
   const location = useLocation();
 
   return (
-    <Box component="body" bgcolor="primary.main">
+    <Box bgcolor="primary.main">
       <Header />
       <main>
         {location.pathname === "/" ? (
