@@ -5,8 +5,8 @@ import { Box, Divider, Typography } from "@mui/material";
 import theme from "../theme";
 import { PaymentForm } from "../components/formComponents/PaymentForm";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
 import logo from "../assets/logo.svg";
+import { Helmet } from "react-helmet-async";
 
 export const Cart = () => {
   const { cartList, totalPrice } = useContext(CartContext);

@@ -1,6 +1,6 @@
-import { Helmet } from "react-helmet";
 import { Catalog } from "../components/Catalog";
 import logo from "../assets/logo.svg";
+import { Helmet } from "react-helmet-async";
 
 export const Shop = () => {
   return (
